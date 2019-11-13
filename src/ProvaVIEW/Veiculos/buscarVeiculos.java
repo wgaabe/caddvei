@@ -190,13 +190,17 @@ public class buscarVeiculos extends javax.swing.JFrame {
     }//GEN-LAST:event_BBuscarVeiculoActionPerformed
 
     private void BAlterarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BAlterarVeiculoActionPerformed
-        
+    if(TTableBuscarVeiculos.getSelectedRow()>=0){
         String placa =""+TTableBuscarVeiculos.getValueAt(TTableBuscarVeiculos.getSelectedRow(), 0);
         alterarVeiculo av = new alterarVeiculo(placa, this);
         CadVeicMODEL cvm = new CadVeicMODEL();
         av.setVisible(true);
         limparTabela();
         buscarveiculo();
+    }else{
+        JOptionPane.showMessageDialog(null, "Selecione um Veiculo");
+    }
+        
     }//GEN-LAST:event_BAlterarVeiculoActionPerformed
 
     private void BExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BExcluirActionPerformed
@@ -208,7 +212,7 @@ public class buscarVeiculos extends javax.swing.JFrame {
                 buscarveiculo();
             }
         }else{
-            JOptionPane.showMessageDialog(null, "Selecione um Produto");
+            JOptionPane.showMessageDialog(null, "Selecione um Veiculo");
         }
     }//GEN-LAST:event_BExcluirActionPerformed
 
